@@ -19,13 +19,23 @@ namespace PeraPod
 
         private void button1_Click(object sender, EventArgs e)
         {
-            conexion.crear_conexion();
-            button1.Text = "conectado";
+            
         }
 
         private void Inventario_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = accesobd.cargarInventario();
+        }
+
+        private void txt_NomProducto_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_NomProducto.Text = "";
+            txt_NomProducto.ForeColor = Color.Black;
+        }
+
+        private void txt_NomProducto_TextChanged(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = accesobd.cargarInventario(txt_NomProducto.Text);
         }
     }
 }
