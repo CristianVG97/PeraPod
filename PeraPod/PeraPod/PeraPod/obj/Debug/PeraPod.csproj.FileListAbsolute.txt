@@ -1,0 +1,12 @@
+c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\bin\Debug\PeraPod.exe.config
+c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\bin\Debug\PeraPod.exe
+c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\bin\Debug\PeraPod.pdb
+c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\obj\Debug\PeraPod.csprojResolveAssemblyReference.cache
+c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\obj\Debug\PeraPod.Properties.Resources.resources
+c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\obj\Debug\PeraPod.csproj.GenerateResource.Cache
+c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\obj\Debug\PeraPod.exe
+c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\obj\Debug\PeraPod.pdb
+c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\obj\Debug\PeraPod.MainForm.resources
+c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\bin\Debug\MySql.Data.dll
+c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\bin\Debug\MySql.Data.xml
+c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\obj\Debug\PeraPod.Inventario.resources
