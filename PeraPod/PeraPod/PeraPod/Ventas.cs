@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace PeraPod
 {
@@ -17,10 +18,30 @@ namespace PeraPod
             InitializeComponent();
         }
 
+        public void cargar(string nombre)
+        {
+            MySqlCommand consulta = new MySqlCommand();
+            // SELECT nombre FROM `productos`
+            consulta.CommandText = "SELECT nombre FROM `productos` WHERE `nombre` LIKE '%" + nombre + "%'";
+            consulta.Connection = conexion.crear_conexion();
+            MySqlDataReader producto = consulta.ExecuteReader();
+            lbx_Inventario.Items.Clear();
+            while (producto.Read())
+            {
+                lbx_Inventario.Items.Add(producto[0].ToString());
+                
+            }
+
+        }
         private void Ventas_Load(object sender, EventArgs e)
         {
-            lbx_Inventario.DataSource = accesobd.cargarInventario();
-            dataGridView1.DataSource = accesobd.cargarInventario();
+
+            
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            cargar(txt_buscarProductoventa.Text);
         }
     }
 }

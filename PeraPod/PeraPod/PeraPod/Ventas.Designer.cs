@@ -28,47 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_buscarProductoventa = new System.Windows.Forms.TextBox();
             this.lbx_Inventario = new System.Windows.Forms.ListBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txt_buscarProductoventa
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(361, 20);
-            this.textBox1.TabIndex = 0;
+            this.txt_buscarProductoventa.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_buscarProductoventa.Location = new System.Drawing.Point(12, 12);
+            this.txt_buscarProductoventa.Name = "txt_buscarProductoventa";
+            this.txt_buscarProductoventa.Size = new System.Drawing.Size(361, 31);
+            this.txt_buscarProductoventa.TabIndex = 0;
+            this.txt_buscarProductoventa.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lbx_Inventario
             // 
+            this.lbx_Inventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbx_Inventario.FormattingEnabled = true;
+            this.lbx_Inventario.ItemHeight = 25;
             this.lbx_Inventario.Location = new System.Drawing.Point(12, 54);
             this.lbx_Inventario.Name = "lbx_Inventario";
-            this.lbx_Inventario.Size = new System.Drawing.Size(361, 238);
+            this.lbx_Inventario.Size = new System.Drawing.Size(361, 429);
             this.lbx_Inventario.TabIndex = 1;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(434, 152);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(500, 150);
-            this.dataGridView1.TabIndex = 2;
             // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 506);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lbx_Inventario);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_buscarProductoventa);
             this.Name = "Ventas";
             this.Text = "Ventas";
             this.Load += new System.EventHandler(this.Ventas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -76,8 +68,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_buscarProductoventa;
         private System.Windows.Forms.ListBox lbx_Inventario;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
