@@ -13,12 +13,25 @@ namespace PeraPod
         {
             int resultado = 0;
             MySqlCommand consulta = new MySqlCommand();
+            
             consulta.CommandText = "INSERT INTO `productos` (`clave`, `nombre`, `pecio`, `existencia`) VALUES ('" + datos.claveProducto+"','"+datos.nombreProducto+"','"+datos.precioProducto+"','"+datos.exitenciaProducto+"');";
             consulta.Connection = conexion.crear_conexion();
             resultado = consulta.ExecuteNonQuery();
             return resultado;
 
         }
+        public static int cambiar(double precio, int existencia, string clave)
+        {
+            int resultado = 0;
+            MySqlCommand consulta = new MySqlCommand();
+            //UPDATE `productos` SET `clave`= 'fvv' WHERE clave = 'bbi'
+            consulta.CommandText = "UPDATE `productos` SET `pecio`='"+precio+"', `existencia`='"+existencia+"' WHERE clave ='"+clave+"';";
+            consulta.Connection = conexion.crear_conexion();
+            resultado = consulta.ExecuteNonQuery();
+            return resultado;
+
+        }
+
         public static List<_productos> cargarInventario()
         {
             List<_productos> listaProductos = new List<_productos>();

@@ -40,14 +40,26 @@ namespace PeraPod
 
         private void txt_clave_MouseClick(object sender, MouseEventArgs e)
         {
-            txt_clave.Text = "";
-            txt_clave.ForeColor = Color.Black;
+            if (cbx_tipo_operacion.Text == "Agregar Exitencia a Un Producto o Cambiar Precio")
+            {
+            }
+            else
+            {
+                txt_clave.Text = "";
+                txt_clave.ForeColor = Color.Black;
+            }
         }
 
         private void txt_nombre_MouseClick(object sender, MouseEventArgs e)
         {
-            txt_nombre.Text = "";
-            txt_nombre.ForeColor = Color.Black;
+            if (cbx_tipo_operacion.Text == "Agregar Exitencia a Un Producto o Cambiar Precio")
+            {
+            }
+            else
+            {
+                txt_nombre.Text = "";
+                txt_nombre.ForeColor = Color.Black;
+            }
         }
 
         private void txt_precio_MouseClick(object sender, MouseEventArgs e)
@@ -112,6 +124,22 @@ namespace PeraPod
             }
 
             limpiar_contenedores();
+        }
+
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+            accesobd.cambiar(Convert.ToDouble(txt_precio.Text), Convert.ToInt32(txt_precio.Text), txt_clave.Text);
+            dataGridView1.DataSource = accesobd.cargarInventario();
+            limpiar_contenedores();
+           
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_clave.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txt_nombre.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txt_precio.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            txt_existencia.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
         }
     }
 }
