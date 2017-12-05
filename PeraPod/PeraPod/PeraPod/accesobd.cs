@@ -9,6 +9,16 @@ namespace PeraPod
 {
     class accesobd
     {
+        public static int  insertar(_productos datos)
+        {
+            int resultado = 0;
+            MySqlCommand consulta = new MySqlCommand();
+            consulta.CommandText = "INSERT INTO `productos` (`clave`, `nombre`, `pecio`, `existencia`) VALUES ('" + datos.claveProducto+"','"+datos.nombreProducto+"','"+datos.precioProducto+"','"+datos.exitenciaProducto+"');";
+            consulta.Connection = conexion.crear_conexion();
+            resultado = consulta.ExecuteNonQuery();
+            return resultado;
+
+        }
         public static List<_productos> cargarInventario()
         {
             List<_productos> listaProductos = new List<_productos>();
@@ -29,6 +39,7 @@ namespace PeraPod
             return listaProductos;
 
         }
+       
         public static List<_productos> cargarInventario( string nombre)
         {
             List<_productos> listaProductos = new List<_productos>();
