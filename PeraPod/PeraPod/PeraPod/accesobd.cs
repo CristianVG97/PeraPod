@@ -52,7 +52,27 @@ namespace PeraPod
             return listaProductos;
 
         }
-       
+        public static List<Venta_Productos> mostrarVenta()
+        {
+            List<Venta_Productos> listaProductosVenta = new List<Venta_Productos>();
+            MySqlCommand consulta = new MySqlCommand();
+            consulta.CommandText = "SELECT * FROM `venta`";
+            consulta.Connection = conexion.crear_conexion();
+            MySqlDataReader producto = consulta.ExecuteReader();
+            while (producto.Read())
+            {
+                Venta_Productos nuevo = new Venta_Productos();
+               // nuevo.claveProducto = producto["clave"].ToString();
+                nuevo.Nombre = producto["nombre"].ToString();
+                nuevo.Cantidad = producto["cantidad"].ToString();
+                nuevo.Costo = producto["costo"].ToString();
+                listaProductosVenta.Add(nuevo);
+            }
+
+            return listaProductosVenta;
+
+        }
+
         public static List<_productos> cargarInventario( string nombre)
         {
             List<_productos> listaProductos = new List<_productos>();

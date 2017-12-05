@@ -35,13 +35,20 @@ namespace PeraPod
         }
         private void Ventas_Load(object sender, EventArgs e)
         {
-
+            dgv_venta.DataSource = accesobd.mostrarVenta();
             
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             cargar(txt_buscarProductoventa.Text);
+        }
+
+      
+
+        private void lbx_Inventario_SelectedIndexChanged(object sender, EventArgs e)//seleccionar el item
+        {
+           
         }
     }
 }
