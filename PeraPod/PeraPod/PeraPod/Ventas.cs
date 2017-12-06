@@ -84,19 +84,26 @@ namespace PeraPod
                 nuevo.Costo =Convert.ToString((Convert.ToDouble( producto["pecio"])*cantidad));
 
 
-
-            int validacom = accesobd.cambiar(existencia - cantidad, nuevo.claveProducto);//falta validar si se cuenta  con  la existencia para vender elproducto
-
-            int validacion = accesobd.insertarVenta(nuevo);
-           
-            if (validacion > 0)
+            int canexitencia = existencia - cantidad;
+            if (canexitencia < 0)
             {
-                dgv_venta.DataSource = accesobd.mostrarVenta();
+                MessageBox.Show("No cuenta con el producto suficiente para realizar esta venta", "Error");
             }
             else
             {
-                MessageBox.Show("Error", "¡No se pudo realizar la compra!");
+                int validacom = accesobd.cambiar(canexitencia, nuevo.claveProducto);
 
+                int validacion = accesobd.insertarVenta(nuevo);
+
+                if (validacion > 0)
+                {
+                    dgv_venta.DataSource = accesobd.mostrarVenta();
+                }
+                else
+                {
+                    MessageBox.Show("Error", "¡No se pudo realizar la compra!");
+
+                }
             }
         }
         private void Ventas_Load(object sender, EventArgs e)
@@ -123,13 +130,36 @@ namespace PeraPod
 
         private void btn_comprar_Click(object sender, EventArgs e)
         {
-            
-            guardarventa();
-            
-            
 
-            borrar_registros();
-            dgv_venta.DataSource = accesobd.mostrarVenta();
+            double importe = Convert.ToDouble(txt_importe.Text);
+            double  montopago= Convert.ToDouble(lbl_montopago.Text);
+            double cambio = importe - montopago; 
+            cambio cam = new cambio(cambio);
+
+            if (txt_importe.Text == ""||importe<montopago)
+            {
+                MessageBox.Show("Error: debe introducir el importe o el importe es incorrecto");
+            }
+            else
+            {
+                guardarventa();
+
+
+
+                borrar_registros();
+                dgv_venta.DataSource = accesobd.mostrarVenta();
+
+                cam.Show();
+               
+                txt_buscarProductoventa.Text = "";
+                txt_cantidad.Text = "1";
+                txt_importe.Text = "";
+                lbl_montopago.Text = "0";
+
+            }
+
+
+          
         }
     }
 }

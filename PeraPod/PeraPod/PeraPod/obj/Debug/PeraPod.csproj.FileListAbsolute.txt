@@ -11,3 +11,4 @@ c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\bin\Debu
 c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\bin\Debug\MySql.Data.xml
 c:\users\cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\obj\Debug\PeraPod.Inventario.resources
 C:\Users\Cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\obj\Debug\PeraPod.Ventas.resources
+C:\Users\Cristian\documents\visual studio 2015\Projects\PeraPod\PeraPod\obj\Debug\PeraPod.cambio.resources

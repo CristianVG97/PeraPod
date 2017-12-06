@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="accesobd.cs" />
+    <Compile Include="cambio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cambio.Designer.cs">
+      <DependentUpon>cambio.cs</DependentUpon>
+    </Compile>
     <Compile Include="conexion.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -71,6 +77,9 @@
       <DependentUpon>Ventas.cs</DependentUpon>
     </Compile>
     <Compile Include="Venta_Productos.cs" />
+    <EmbeddedResource Include="cambio.resx">
+      <DependentUpon>cambio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
