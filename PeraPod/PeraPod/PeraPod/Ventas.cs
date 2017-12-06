@@ -33,6 +33,37 @@ namespace PeraPod
             }
 
         }
+        public void buscar(string nombre, int cantidad)
+        {
+            
+            MySqlCommand consulta = new MySqlCommand();
+            consulta.CommandText = "SELECT * FROM `productos` WHERE `nombre` ='" + nombre + "';";
+            consulta.Connection = conexion.crear_conexion();
+            MySqlDataReader producto = consulta.ExecuteReader();
+            Venta_Productos nuevo = new Venta_Productos();
+
+            while (producto.Read())
+            {
+                nuevo.claveProducto = producto["clave"].ToString();
+                nuevo.Nombre=producto["nombre"].ToString();
+                nuevo.Cantidad = cantidad.ToString();
+                nuevo.Costo =Convert.ToString((Convert.ToDouble( producto["pecio"])*cantidad));
+
+
+            }
+
+
+            int validacion = accesobd.insertarVenta(nuevo);
+            if (validacion > 0)
+            {
+                dgv_venta.DataSource = accesobd.mostrarVenta();
+            }
+            else
+            {
+                MessageBox.Show("Error", "¡No se pudo realizar la compra!");
+
+            }
+        }
         private void Ventas_Load(object sender, EventArgs e)
         {
             dgv_venta.DataSource = accesobd.mostrarVenta();
@@ -48,7 +79,12 @@ namespace PeraPod
 
         private void lbx_Inventario_SelectedIndexChanged(object sender, EventArgs e)//seleccionar el item
         {
-           
+            String nombre = lbx_Inventario.Text;
+            int cantidad = Convert.ToInt32(txt_cantidad.Text);
+            buscar(nombre,cantidad);
+
         }
+
+        
     }
 }

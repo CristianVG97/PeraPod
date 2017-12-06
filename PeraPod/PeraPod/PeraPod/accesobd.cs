@@ -20,6 +20,17 @@ namespace PeraPod
             return resultado;
 
         }
+        public static int insertarVenta(Venta_Productos datos)
+        {
+            int resultado = 0;
+            MySqlCommand consulta = new MySqlCommand();
+
+            consulta.CommandText = "INSERT INTO `venta` (`clave`, `nombre`, `cantidad`, `costo`) VALUES ('" +datos.claveProducto+ "','" + datos.Nombre+ "','" + datos.Cantidad+ "','" + datos.Costo+ "');";
+            consulta.Connection = conexion.crear_conexion();
+            resultado = consulta.ExecuteNonQuery();
+            return resultado;
+
+        }
         public static int cambiar(double precio, int existencia, string clave)
         {
             int resultado = 0;
@@ -62,7 +73,7 @@ namespace PeraPod
             while (producto.Read())
             {
                 Venta_Productos nuevo = new Venta_Productos();
-               // nuevo.claveProducto = producto["clave"].ToString();
+               nuevo.claveProducto = producto["clave"].ToString();
                 nuevo.Nombre = producto["nombre"].ToString();
                 nuevo.Cantidad = producto["cantidad"].ToString();
                 nuevo.Costo = producto["costo"].ToString();
@@ -94,6 +105,10 @@ namespace PeraPod
             return listaProductos;
 
         }
+
+
+
+
 
        
 

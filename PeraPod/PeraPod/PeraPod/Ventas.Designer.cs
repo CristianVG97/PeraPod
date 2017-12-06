@@ -31,8 +31,8 @@
             this.txt_buscarProductoventa = new System.Windows.Forms.TextBox();
             this.lbx_Inventario = new System.Windows.Forms.ListBox();
             this.txt_cantidad = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.dgv_venta = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_venta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,15 +63,7 @@
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(44, 31);
             this.txt_cantidad.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(402, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.txt_cantidad.Text = "1";
             // 
             // dgv_venta
             // 
@@ -83,13 +75,20 @@
             this.dgv_venta.Size = new System.Drawing.Size(355, 429);
             this.dgv_venta.TabIndex = 4;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(376, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 5;
+            // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 506);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgv_venta);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.txt_cantidad);
             this.Controls.Add(this.lbx_Inventario);
             this.Controls.Add(this.txt_buscarProductoventa);
@@ -107,7 +106,7 @@
         private System.Windows.Forms.TextBox txt_buscarProductoventa;
         private System.Windows.Forms.ListBox lbx_Inventario;
         private System.Windows.Forms.TextBox txt_cantidad;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgv_venta;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
