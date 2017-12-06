@@ -161,5 +161,22 @@ namespace PeraPod
 
           
         }
+
+        private void txt_cantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar)||char.IsSymbol(e.KeyChar)|| char.IsPunctuation(e.KeyChar)|| char.IsSeparator(e.KeyChar)|| char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txt_importe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || char.IsSymbol(e.KeyChar)  || char.IsSeparator(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

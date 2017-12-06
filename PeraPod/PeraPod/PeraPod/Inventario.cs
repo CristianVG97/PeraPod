@@ -141,5 +141,21 @@ namespace PeraPod
             txt_precio.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             txt_existencia.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
         }
+
+        private void txt_precio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || char.IsSymbol(e.KeyChar)  || char.IsSeparator(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_existencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

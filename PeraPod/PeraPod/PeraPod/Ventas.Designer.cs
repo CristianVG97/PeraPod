@@ -70,6 +70,7 @@
             this.txt_cantidad.Size = new System.Drawing.Size(44, 31);
             this.txt_cantidad.TabIndex = 2;
             this.txt_cantidad.Text = "1";
+            this.txt_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cantidad_KeyPress);
             // 
             // dgv_venta
             // 
@@ -138,6 +139,7 @@
             this.txt_importe.Name = "txt_importe";
             this.txt_importe.Size = new System.Drawing.Size(118, 49);
             this.txt_importe.TabIndex = 10;
+            this.txt_importe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_importe_KeyPress);
             // 
             // label3
             // 
