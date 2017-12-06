@@ -60,6 +60,18 @@ namespace PeraPod
             return resultado;
 
         }
+        public static int cambiar( int existencia, string clave)
+        {
+            int resultado = 0;
+            MySqlCommand consulta = new MySqlCommand();
+            //UPDATE `productos` SET `clave`= 'fvv' WHERE clave = 'bbi'
+            consulta.CommandText = "UPDATE `productos` SET `existencia`='" + existencia + "' WHERE clave ='" + clave + "';";
+            consulta.Connection = conexion.crear_conexion();
+            resultado = consulta.ExecuteNonQuery();
+            return resultado;
+
+        }
+
 
         public static List<_productos> cargarInventario()
         {

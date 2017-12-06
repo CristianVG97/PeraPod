@@ -68,25 +68,27 @@ namespace PeraPod
         }
         public void buscar(string nombre, int cantidad)
         {
-            
+            int existencia;
             MySqlCommand consulta = new MySqlCommand();
             consulta.CommandText = "SELECT * FROM `productos` WHERE `nombre` ='" + nombre + "';";
             consulta.Connection = conexion.crear_conexion();
             MySqlDataReader producto = consulta.ExecuteReader();
             Venta_Productos nuevo = new Venta_Productos();
 
-            while (producto.Read())
-            {
+         
+                producto.Read();
                 nuevo.claveProducto = producto["clave"].ToString();
                 nuevo.Nombre=producto["nombre"].ToString();
+            existencia = Convert.ToInt16(producto["existencia"]);
                 nuevo.Cantidad = cantidad.ToString();
                 nuevo.Costo =Convert.ToString((Convert.ToDouble( producto["pecio"])*cantidad));
 
 
-            }
 
+            int validacom = accesobd.cambiar(existencia - cantidad, nuevo.claveProducto);//falta validar si se cuenta  con  la existencia para vender elproducto
 
             int validacion = accesobd.insertarVenta(nuevo);
+           
             if (validacion > 0)
             {
                 dgv_venta.DataSource = accesobd.mostrarVenta();
@@ -115,6 +117,7 @@ namespace PeraPod
             String nombre = lbx_Inventario.Text;
             int cantidad = Convert.ToInt32(txt_cantidad.Text);
             buscar(nombre,cantidad);
+            lbl_montopago.Text = Convert.ToString(accesobd.montopago());
 
         }
 
@@ -122,7 +125,7 @@ namespace PeraPod
         {
             
             guardarventa();
-            lbl_montopago.Text = Convert.ToString(accesobd.montopago());
+            
             
 
             borrar_registros();
