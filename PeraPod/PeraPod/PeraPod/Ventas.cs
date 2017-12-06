@@ -33,6 +33,39 @@ namespace PeraPod
             }
 
         }
+        public void guardarventa( )
+        {
+        
+            MySqlCommand consulta = new MySqlCommand();
+
+            consulta.CommandText = "INSERT INTO `registroventas`  VALUES (?clave, ?nombre,?cantidad,?costo,?fecha);";
+            consulta.Connection = conexion.crear_conexion();
+
+            
+                foreach (DataGridViewRow row in dgv_venta.Rows)
+                {
+                    consulta.Parameters.Clear();
+                    consulta.Parameters.Add("?clave", MySqlDbType.VarChar).Value = Convert.ToString(row.Cells[0].Value);
+                    consulta.Parameters.Add("?nombre", MySqlDbType.VarChar).Value = Convert.ToString(row.Cells[1].Value);
+                    consulta.Parameters.Add("?cantidad", MySqlDbType.Int16).Value = Convert.ToInt16(row.Cells[2].Value);
+                    consulta.Parameters.Add("?costo", MySqlDbType.Float).Value = Convert.ToDouble(row.Cells[3].Value);
+                    consulta.Parameters.Add("?fecha", MySqlDbType.Datetime).Value = Convert.ToDateTime(dt_fecha.Value);
+
+                    consulta.ExecuteNonQuery();
+
+                }
+
+
+           
+        }
+        public void borrar_registros()
+        {
+            MySqlCommand consulta = new MySqlCommand();
+            consulta.CommandText = "TRUNCATE TABLE `venta`";
+            consulta.Connection = conexion.crear_conexion();
+            consulta.ExecuteNonQuery();
+
+        }
         public void buscar(string nombre, int cantidad)
         {
             
@@ -85,6 +118,15 @@ namespace PeraPod
 
         }
 
-        
+        private void btn_comprar_Click(object sender, EventArgs e)
+        {
+            
+            guardarventa();
+            lbl_montopago.Text = Convert.ToString(accesobd.montopago());
+            
+
+            borrar_registros();
+            dgv_venta.DataSource = accesobd.mostrarVenta();
+        }
     }
 }

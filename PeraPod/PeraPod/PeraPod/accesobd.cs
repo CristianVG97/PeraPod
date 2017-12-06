@@ -31,6 +31,24 @@ namespace PeraPod
             return resultado;
 
         }
+        public static double montopago()
+        {
+            double pago = 0;
+            MySqlCommand consulta = new MySqlCommand();
+            consulta.CommandText = "SELECT `costo` FROM `venta`";
+            consulta.Connection = conexion.crear_conexion();
+            MySqlDataReader producto = consulta.ExecuteReader();
+          
+
+            while (producto.Read())
+            {
+                pago += Convert.ToDouble(producto["costo"]);
+
+
+            }
+            return pago;
+
+        }
         public static int cambiar(double precio, int existencia, string clave)
         {
             int resultado = 0;
